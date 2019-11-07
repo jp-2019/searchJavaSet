@@ -23,5 +23,18 @@ public class Main {
         } else {
             System.out.println("Object does not exist");
         }
+        Customer c = findUsingLoop("Jane", customers);
+        System.out.println(c.name);
+    }
+    public static Customer findUsingLoop(String name, List<Customer> customers){
+        // breaking each element in list of cx into customer object
+        // figure out if name of customer is equal to what im searching for
+        // normally set up getters and setters don't do it this way.
+        for (Customer customer: customers) {
+            if(customer.name.equals(name)){
+                return customer;
+            }
+        }
+        return null;
     }
 }
