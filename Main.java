@@ -13,7 +13,18 @@ public class Main {
         Customer James = new Customer(4, "James", "Amazon");
         customers.add(James);
         Customer customer = findUsingIterator("Li", customers);
-        System.out.println(customer.companyName);
+        //System.out.println(customer.companyName);
+
+        // search using stream api
+        Customer Jack = customers.stream()
+                .filter(customer1 -> "Jack".equals(customer1.name))
+                .findAny()
+                .orElse(null);
+        if(Jack != null) {
+            System.out.println(Jack.companyName);
+        }else {
+            System.out.println("Nothing is here!");
+        }
        // traverse a list of items using iterator
         // iterates through elements to find the one you need
     }
