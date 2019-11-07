@@ -1,23 +1,20 @@
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Main {
-    public static boolean checkIfExists(String[] myStringArray, String stringToLocate){
-        return Arrays.asList( myStringArray ).contains( stringToLocate );
-    }
 
-    public static boolean searchSet(String[] strings, String searchString) {
-        Set<String> stringSet = new HashSet<>(Arrays.asList(strings));
-        return stringSet.contains(searchString);
-    }
+    public static void main(String[] args){
+        List<Customer> customers = new ArrayList<>();
+        customers.add(new Customer(1, "Jack"));
+        customers.add(new Customer(2, "Li"));
+        customers.add(new Customer(3, "Jane"));
 
-    public static void main( String[] args ){
-        boolean found = searchSet(new String[] {"Riz", "JP", "Greg"}, "Jared");
-        if (found) {
-            System.out.println("The value is found");
+        // creating a new object but not adding it to the list
+        // i can still search for it
+        Customer James = new Customer(4, "James");
+        if(customers.contains(James)) {
+            System.out.println("Object does exist");
         } else {
-            System.out.println("The value is not found");
+            System.out.println("Object does not exist");
         }
     }
 }
